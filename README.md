@@ -22,7 +22,7 @@ Also check out the [password-leak-monitor](https://github.com/mathiscode/passwor
 
 ## Introduction
 
-`node-password-leak` is a module that can be used to check if a password is compromised by checking with the [Have I Been Pwned API](https://haveibeenpwned.com/API/).
+`node-password-leak` is a module that can be used to determine if a password is compromised by checking with the [Have I Been Pwned API](https://haveibeenpwned.com/API/).
 
 ## How is this safe?
 
