@@ -39,6 +39,7 @@ Your passwords are **NEVER** transmitted to any other system. This addon makes u
 ```js
 import checkPassword from 'password-leak'
 const isCompromised = await checkPassword('myPassword')
+console.log('Is compromised?', isCompromised)
 ```
 
 ### Pre-ES7
