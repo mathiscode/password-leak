@@ -44,7 +44,6 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
@@ -56,7 +55,8 @@
     "uuid": "^3.3.2"
   },
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "@babel/polyfill": "^7.4.4"
   },
   "standard": {
     "ignore": [
