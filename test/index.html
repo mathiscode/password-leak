@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>password-leak test</title>
+</head>
+<body>
+  <script src="../dist/index.js"></script>
+  <script>
+    const randomPassword = Math.random().toString(36).substr(2, 11)
+
+    isPasswordCompromised('test')
+      .then(result => {
+        document.write(`<pre>isPasswordCompromised('test') = ${result}</pre>`)
+      })
+
+    isPasswordCompromised(randomPassword)
+      .then(result => {
+        document.write(`<pre>isPasswordCompromised('${randomPassword}') = ${result}</pre>`)
+      })
+  </script>
+</body>
+</html>

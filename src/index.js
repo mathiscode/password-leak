@@ -2,7 +2,7 @@ import '@babel/polyfill'
 import axios from 'axios'
 import crypto from 'crypto'
 
-export default async password => {
+const isPasswordCompromised = async password => {
   if (!password || password === '') throw new Error('You must provide a password')
 
   const digest = crypto.createHash('sha1').update(password).digest('hex').toUpperCase()
@@ -19,3 +19,7 @@ export default async password => {
 
   return found
 }
+
+if (window) window.isPasswordCompromised = isPasswordCompromised
+
+export default isPasswordCompromised
