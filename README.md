@@ -26,7 +26,7 @@ Also check out the [password-leak-monitor](https://github.com/mathiscode/passwor
 
 ## How is this safe?
 
-Your passwords are **NEVER** transmitted to any other system. This addon makes use of the [Have I Been Pwned API](https://haveibeenpwned.com/API/), which implements a [k-Anonymity Model](https://en.wikipedia.org/wiki/K-anonymity) so your password can be checked without ever having to give your password to any other party.
+Your passwords are **NEVER** transmitted to any other system. This library makes use of the [Have I Been Pwned API](https://haveibeenpwned.com/API/), which implements a [k-Anonymity Model](https://en.wikipedia.org/wiki/K-anonymity) so your password can be checked without ever having to give your password to any other party.
 
 ## Installation
 
