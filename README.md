@@ -46,5 +46,5 @@ const isCompromised = await checkPassword('myPassword')
 ```js
 const checkPassword = require('password-leak').default
 checkPassword('myPassword')
-  .then(result => console.log('Is compromised?', result))
+  .then(isCompromised => console.log('Is compromised?', isCompromised))
 ```
