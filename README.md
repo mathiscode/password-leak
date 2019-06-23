@@ -14,7 +14,8 @@ Also check out the [password-leak-monitor](https://github.com/mathiscode/passwor
 - [Introduction](#Introduction)
 - [How is this safe?](#How-is-this-safe)
 - [Installation](#Installation)
-- [Usage](#Usage)
+- [Usage in Browser](#Usage-in-Browser)
+- [Usage in Node.js](#Usage-in-Nodejs)
   - [ES8](#ES8)
   - [Pre-ES8](#Pre-ES8)
 
@@ -32,20 +33,30 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 
 `npm install password-leak`
 
-## Usage
+## Usage in Browser
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/password-leak@latest"></script>
+<script>
+  isPasswordCompromised('myPassword')
+    .then(isCompromised => console.log('Is compromised?', isCompromised))
+</script>
+```
+
+## Usage in Node.js
 
 ### ES8
 
 ```js
-import checkPassword from 'password-leak'
-const isCompromised = await checkPassword('myPassword')
+import isPasswordCompromised from 'password-leak'
+const isCompromised = await isPasswordCompromised('myPassword')
 console.log('Is compromised?', isCompromised)
 ```
 
 ### Pre-ES8
 
 ```js
-const checkPassword = require('password-leak').default
-checkPassword('myPassword')
+const isPasswordCompromised = require('password-leak').default
+isPasswordCompromised('myPassword')
   .then(isCompromised => console.log('Is compromised?', isCompromised))
 ```
