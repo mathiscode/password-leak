@@ -3,13 +3,12 @@
 require('jsdom-global')()
 
 const chai = require('chai')
-const uuid = require('uuid').v4
 
 chai.use(require('chai-as-promised'))
 chai.should()
 
 const isPasswordCompromised = require('../dist').default
-const randomPassword = uuid()
+const randomPassword = Math.random().toString(36).substr(2, 11)
 
 describe('password-leak', () => {
   it('should throw error on undefined password', () => {
