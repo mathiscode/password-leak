@@ -9,7 +9,7 @@ chai.should()
 const checkPassword = require('../dist').default
 const randomPassword = uuid()
 
-describe('password-leak', done => {
+describe('password-leak', () => {
   it('should throw error on undefined password', () => {
     return checkPassword().should.eventually.be.rejected
   })
