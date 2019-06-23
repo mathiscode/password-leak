@@ -37,9 +37,11 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/password-leak@latest"></script>
+
 <script>
-  isPasswordCompromised('myPassword')
-    .then(isCompromised => console.log('Is compromised?', isCompromised))
+  isPasswordCompromised('myPassword').then(isCompromised => {
+    console.log('Is compromised?', isCompromised)
+  })
 </script>
 ```
 
@@ -49,6 +51,7 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 
 ```js
 import isPasswordCompromised from 'password-leak'
+
 const isCompromised = await isPasswordCompromised('myPassword')
 console.log('Is compromised?', isCompromised)
 ```
@@ -57,6 +60,8 @@ console.log('Is compromised?', isCompromised)
 
 ```js
 const isPasswordCompromised = require('password-leak').default
-isPasswordCompromised('myPassword')
-  .then(isCompromised => console.log('Is compromised?', isCompromised))
+
+isPasswordCompromised('myPassword').then(isCompromised => {
+  console.log('Is compromised?', isCompromised)
+})
 ```
