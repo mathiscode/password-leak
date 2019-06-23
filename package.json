@@ -5,7 +5,6 @@
   "author": "J.R. Mathis (https://github.com/mathiscode)",
   "license": "MIT",
   "main": "dist/index.js",
-  "browser": "dist/index.browser.js",
   "homepage": "https://github.com/mathiscode/node-password-leak#readme",
   "repository": {
     "type": "git",
