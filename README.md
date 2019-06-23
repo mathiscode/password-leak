@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD026 -->
+
 # node-password-leak <!-- omit in toc -->
 
 [![Build Status](https://travis-ci.org/mathiscode/node-password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/node-password-leak)
