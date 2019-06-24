@@ -2,10 +2,10 @@
 
 # password-leak <!-- omit in toc -->
 
-[![Build Status](https://travis-ci.org/mathiscode/node-password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/node-password-leak)
+[![Build Status](https://travis-ci.org/mathiscode/password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/password-leak)
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/node-password-leak/compare)
-[![GitHub license](https://img.shields.io/github/license/mathiscode/node-password-leak.svg?color=blue)](https://github.com/mathiscode/node-password-leak/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
+[![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE)
 
 Also check out the [password-leak-monitor](https://github.com/mathiscode/password-leak-monitor) browser extension!
 
