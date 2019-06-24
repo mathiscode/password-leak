@@ -5,25 +5,20 @@
   "author": "J.R. Mathis (https://github.com/mathiscode)",
   "license": "MIT",
   "main": "dist/index.js",
-
   "homepage": "https://github.com/mathiscode/node-password-leak#readme",
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mathiscode/node-password-leak.git"
   },
-
   "bugs": {
     "url": "https://github.com/mathiscode/node-password-leak/issues"
   },
-
   "browserslist": [
     "last 1 version",
     "> 1%",
     "maintained node versions",
     "not dead"
   ],
-
   "scripts": {
     "build": "webpack",
     "watch": "npm-run-all --parallel watch:*",
@@ -36,7 +31,6 @@
     "push": "git push && npm publish",
     "commit": "commit-wizard"
   },
-
   "keywords": [
     "password",
     "leak",
@@ -44,7 +38,6 @@
     "security",
     "haveibeenpwned"
   ],
-
   "config": {
     "pre-git": {
       "pre-commit": [
@@ -54,36 +47,34 @@
       ]
     }
   },
-
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "core-js": "^3.1.4",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
     "mocha": "^6.1.4",
     "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "pre-git": "^3.17.1",
+    "regenerator-runtime": "^0.13.2",
     "standard": "^12.0.1",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5"
   },
-
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
     "axios": "^0.19.0"
   },
-
   "standard": {
     "ignore": [
       "dist/",
       "node_modules/"
     ]
   },
-
   "release": {
     "analyzeCommits": "simple-commit-message"
   }

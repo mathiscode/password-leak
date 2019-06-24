@@ -1,7 +1,8 @@
 const path = require('path')
 
 const webConfig = {
-  mode: 'production',
+  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+  devtool: 'source-map',
   performance: { hints: false },
 
   entry: {
@@ -10,10 +11,22 @@ const webConfig = {
 
   output: {
     filename: '[name].js',
-    library: 'password-leak',
-    globalObject: 'this',
+    library: 'isPasswordCompromised',
+    libraryExport: 'default',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist')
+  },
+
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
   }
 }
 

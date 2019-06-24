@@ -7,7 +7,7 @@ const chai = require('chai')
 chai.use(require('chai-as-promised'))
 chai.should()
 
-const isPasswordCompromised = require('../dist').default
+const isPasswordCompromised = require('../dist')
 const randomPassword = Math.random().toString(36).substr(2, 11)
 
 describe('password-leak', () => {

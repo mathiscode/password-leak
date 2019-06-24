@@ -1,4 +1,5 @@
-import '@babel/polyfill'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 import axios from 'axios'
 import crypto from 'crypto'
 
@@ -19,7 +20,5 @@ const isPasswordCompromised = async password => {
 
   return found
 }
-
-if (window) window.isPasswordCompromised = isPasswordCompromised
 
 export default isPasswordCompromised

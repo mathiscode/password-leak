@@ -12,13 +12,13 @@
     const randomPassword = Math.random().toString(36).substr(2, 11)
 
     isPasswordCompromised('test')
-      .then(result => {
-        document.write(`<pre>isPasswordCompromised('test') = ${result}</pre>`)
+      .then(isCompromised => {
+        document.write(`<pre>isPasswordCompromised('test') = ${isCompromised}</pre>`)
       })
 
     isPasswordCompromised(randomPassword)
-      .then(result => {
-        document.write(`<pre>isPasswordCompromised('${randomPassword}') = ${result}</pre>`)
+      .then(isCompromised => {
+        document.write(`<pre>isPasswordCompromised('${randomPassword}') = ${isCompromised}</pre>`)
       })
   </script>
 </body>
