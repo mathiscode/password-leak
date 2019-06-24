@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD026 -->
 
-# node-password-leak <!-- omit in toc -->
+# password-leak <!-- omit in toc -->
 
 [![Build Status](https://travis-ci.org/mathiscode/node-password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/node-password-leak)
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
@@ -23,7 +23,7 @@ Also check out the [password-leak-monitor](https://github.com/mathiscode/passwor
 
 ## Introduction
 
-`password-leak` is a module that can be used to determine if a password is compromised by checking with the [Have I Been Pwned API](https://haveibeenpwned.com/API/).
+`password-leak` is a JavaScript module that can be used to determine if a password is compromised by checking with the [Have I Been Pwned API](https://haveibeenpwned.com/API/).
 
 ## How is this safe?
 
