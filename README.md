@@ -2,7 +2,7 @@
 
 # password-leak <!-- omit in toc -->
 
-[![Version](https://img.shields.io/npm/v/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
+[![Version](https://img.shields.io/npm/v/@mathiscode/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
 [![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE)
@@ -54,7 +54,7 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 ### With import/await
 
 ```js
-import isPasswordCompromised from 'password-leak'
+import isPasswordCompromised from '@mathiscode/password-leak'
 
 const isCompromised = await isPasswordCompromised('myPassword')
 console.log('Is compromised?', isCompromised)
@@ -63,7 +63,7 @@ console.log('Is compromised?', isCompromised)
 ### With require/promises
 
 ```js
-const isPasswordCompromised = require('password-leak').default
+const isPasswordCompromised = require('@mathiscode/password-leak').default
 
 isPasswordCompromised('myPassword').then(isCompromised => {
   console.log('Is compromised?', isCompromised)
