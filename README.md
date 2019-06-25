@@ -72,7 +72,7 @@ isPasswordCompromised('myPassword').then(isCompromised => {
 
 ## Usage in Command Line
 
-Install globally, or use `npx password-leak`
+Install globally, or use `npx @mathiscode/password-leak`
 
 ```sh
 npm install -g @mathiscode/password-leak
