@@ -69,18 +69,12 @@ isPasswordCompromised('myPassword').then(isCompromised => {
 
 ## Usage in Command Line
 
+Install globally, or use `npx password-leak`
+
 ```sh
-# Install globally
 npm install -g password-leak
-# Or to run without installing, prefix commands below with npx
-
-# You can provide the password as an argument:
-$ password-leak myPassword
-
-# Or enter the password hidden:
-$ password-leak
-
-Enter the password to check: *********
-Password is not compromised!
-# The exit status will be 0 (not compromised) or 1 (compromised)
 ```
+
+You can then run `password-leak` to interactively enter the masked password, or provide the password as an argument, eg. `password-leak myPassword`
+
+The exit status will be 0 (not compromised) or 1 (compromised).
