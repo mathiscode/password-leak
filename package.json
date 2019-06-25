@@ -1,5 +1,5 @@
 {
-  "name": "password-leak",
+  "name": "@mathiscode/password-leak",
   "version": "1.2.4",
   "description": "A library to check for compromised passwords",
   "author": "J.R. Mathis (https://github.com/mathiscode)",
