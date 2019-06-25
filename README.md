@@ -9,7 +9,7 @@
 
 [![Build Status](https://travis-ci.org/mathiscode/password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/password-leak)
 [![Dependency Status](https://img.shields.io/david/mathiscode/password-leak.svg)](https://david-dm.org/mathiscode/password-leak)
-[![devDependency Status](https://img.shields.io/david/dev/mathiscode/password-leak.svg)](https://david-dm.org/mathiscode/password-leak)
+[![devDependency Status](https://img.shields.io/david/dev/mathiscode/password-leak.svg?label=devDependencies)](https://david-dm.org/mathiscode/password-leak)
 [![Known Vulnerabilities](https://snyk.io/test/github/mathiscode/password-leak/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mathiscode/password-leak?targetFile=package.json)
 
 Also check out the [password-leak-monitor](https://github.com/mathiscode/password-leak-monitor) browser extension!
