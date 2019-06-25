@@ -6,6 +6,7 @@
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
 [![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE)
+
 [![Build Status](https://travis-ci.org/mathiscode/password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/password-leak)
 [![Dependency Status](https://david-dm.org/mathiscode/password-leak.svg)](https://david-dm.org/mathiscode/password-leak)
 [![devDependency Status](https://david-dm.org/mathiscode/password-leak/dev-status.svg)](https://david-dm.org/mathiscode/password-leak)
