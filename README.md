@@ -3,10 +3,12 @@
 # password-leak <!-- omit in toc -->
 
 [![Version](https://img.shields.io/npm/v/password-leak.svg?color=blue)](https://www.npmjs.com/package/password-leak)
-[![Build Status](https://travis-ci.org/mathiscode/password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/password-leak)
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
 [![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/mathiscode/password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/password-leak)
+[![Dependency Status](https://img.shields.io/david/mathiscode/password-leak.svg)](https://david-dm.org/mathiscode/password-leak)
+[![Known Vulnerabilities](https://snyk.io/test/github/mathiscode/password-leak/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mathiscode/password-leak?targetFile=package.json)
 
 Also check out the [password-leak-monitor](https://github.com/mathiscode/password-leak-monitor) browser extension!
 
