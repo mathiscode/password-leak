@@ -69,11 +69,10 @@ isPasswordCompromised('myPassword').then(isCompromised => {
 
 ## Usage in Command Line
 
-Install globally, locally, or use `npx password-leak`
+Install globally, or use `npx password-leak`
 
 ```sh
-npm install -g password-leak # global
-npm install password-leak # local
+npm install -g password-leak
 ```
 
 You can then run `password-leak` to interactively enter the masked password, or provide the password as an argument, eg. `password-leak myPassword`
