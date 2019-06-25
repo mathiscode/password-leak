@@ -2,6 +2,7 @@
 
 # password-leak <!-- omit in toc -->
 
+[![Version](https://img.shields.io/npm/v/password-leak.svg?color=blue)](https://www.npmjs.com/package/password-leak)
 [![Build Status](https://travis-ci.org/mathiscode/password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/password-leak)
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
