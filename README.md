@@ -2,7 +2,7 @@
 
 # password-leak <!-- omit in toc -->
 
-[![Version](https://img.shields.io/npm/v/password-leak.svg?color=blue)](https://www.npmjs.com/package/password-leak)
+[![Version](https://img.shields.io/npm/v/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
 [![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE)
@@ -35,12 +35,12 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 
 ## Installation
 
-`npm install password-leak`
+`npm install @mathiscode/password-leak`
 
 ## Usage in Browser
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/password-leak@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mathiscode/password-leak@latest"></script>
 
 <script>
   isPasswordCompromised('myPassword').then(isCompromised => {
@@ -75,7 +75,7 @@ isPasswordCompromised('myPassword').then(isCompromised => {
 Install globally, or use `npx password-leak`
 
 ```sh
-npm install -g password-leak
+npm install -g @mathiscode/password-leak
 ```
 
 You can then run `password-leak` to interactively enter the masked password, or provide the password as an argument, eg. `password-leak myPassword`
