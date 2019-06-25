@@ -18,6 +18,7 @@ Also check out the [password-leak-monitor](https://github.com/mathiscode/passwor
 - [Usage in Node.js](#Usage-in-Nodejs)
   - [ES8](#ES8)
   - [Pre-ES8](#Pre-ES8)
+- [Usage in Command Line](#Usage-in-Command-Line)
 
 ---
 
@@ -64,4 +65,18 @@ const isPasswordCompromised = require('password-leak').default
 isPasswordCompromised('myPassword').then(isCompromised => {
   console.log('Is compromised?', isCompromised)
 })
+```
+
+## Usage in Command Line
+
+```sh
+# You can provide the password as an argument:
+$ npx password-leak myPassword
+
+# Or enter the password hidden:
+$ npx password-leak
+
+Enter the password to check: *********
+Password is not compromised!
+# The exit status will be 0 (not compromised) or 1 (compromised)
 ```
