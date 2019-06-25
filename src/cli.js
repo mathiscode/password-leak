@@ -11,6 +11,6 @@ if (!password) {
 
 isPasswordCompromised(password)
   .then(isCompromised => {
-    console.log(isCompromised ? 'Password is compromised!' : 'Password is not compromised!')
+    console.log(`Password is ${isCompromised ? 'compromised' : 'not compromised'}!`)
     process.exit(Number(isCompromised))
   })
