@@ -70,11 +70,15 @@ isPasswordCompromised('myPassword').then(isCompromised => {
 ## Usage in Command Line
 
 ```sh
+# Install globally
+npm install -g password-leak
+# Or to run without installing, prefix commands below with npx
+
 # You can provide the password as an argument:
-$ npx password-leak myPassword
+$ password-leak myPassword
 
 # Or enter the password hidden:
-$ npx password-leak
+$ password-leak
 
 Enter the password to check: *********
 Password is not compromised!
