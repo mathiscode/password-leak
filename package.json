@@ -1,6 +1,6 @@
 {
   "name": "@mathiscode/password-leak",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "A library to check for compromised passwords",
   "author": "J.R. Mathis (https://github.com/mathiscode)",
   "license": "MIT",
