@@ -3,7 +3,6 @@
 # password-leak <!-- omit in toc -->
 
 [![Version](https://img.shields.io/npm/v/@mathiscode/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
-<!-- [![Bundle Size](https://img.shields.io/bundlephobia/min/@mathiscode/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak) -->
 [![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
 [![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE)
