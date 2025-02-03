@@ -4,25 +4,21 @@
 
 [![Version](https://img.shields.io/npm/v/@mathiscode/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
 [![Downloads](https://img.shields.io/npm/dm/@mathiscode/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
-[![Standardjs](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/mathiscode/password-leak/compare)
-[![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE)
-
-[![Build Status](https://travis-ci.org/mathiscode/password-leak.svg?branch=master)](https://travis-ci.org/mathiscode/password-leak)
+[![GitHub license](https://img.shields.io/github/license/mathiscode/password-leak.svg?color=blue)](https://github.com/mathiscode/password-leak/blob/master/LICENSE.md)
 [![Known Vulnerabilities](https://snyk.io/test/github/mathiscode/password-leak/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mathiscode/password-leak?targetFile=package.json)
-
-Also check out the [password-leak-monitor](https://github.com/mathiscode/password-leak-monitor) browser extension!
 
 ---
 
-- [Introduction](#Introduction)
-- [How is this safe?](#How-is-this-safe)
-- [Installation](#Installation)
-- [Usage in Browser](#Usage-in-Browser)
-- [Usage in Node.js](#Usage-in-Nodejs)
-  - [With import/await](#With-importawait)
-  - [With require/promises](#With-requirepromises)
-- [Usage in Command Line](#Usage-in-Command-Line)
+- [Introduction](#introduction)
+- [How is this safe?](#how-is-this-safe)
+- [Installation](#installation)
+- [Usage in Browser](#usage-in-browser)
+- [Usage in Node.js](#usage-in-nodejs)
+  - [With import/await](#with-importawait)
+  - [With require/sync](#with-requiresync)
+- [Usage in Command Line](#usage-in-command-line)
+- [Development](#development)
 
 ---
 
@@ -41,12 +37,11 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 ## Usage in Browser
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@mathiscode/password-leak@latest"></script>
+<script src="https://unpkg.com/@mathiscode/password-leak@latest"></script>
 
 <script>
-  isPasswordCompromised('myPassword').then(isCompromised => {
-    console.log('Is compromised?', isCompromised)
-  })
+  const isLeaked = await isPasswordLeaked('myPassword')
+  console.log('Is leaked?', isLeaked)
 </script>
 ```
 
@@ -55,30 +50,73 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 ### With import/await
 
 ```js
-import isPasswordCompromised from '@mathiscode/password-leak'
+import isPasswordLeaked from '@mathiscode/password-leak'
 
-const isCompromised = await isPasswordCompromised('myPassword')
-console.log('Is compromised?', isCompromised)
+const isLeaked = await isPasswordLeaked('myPassword')
+console.log('Is leaked?', isLeaked)
 ```
 
-### With require/promises
+### With require/sync
 
 ```js
-const isPasswordCompromised = require('@mathiscode/password-leak').default
+const { isPasswordLeakedSync } = require('@mathiscode/password-leak')
 
-isPasswordCompromised('myPassword').then(isCompromised => {
-  console.log('Is compromised?', isCompromised)
+isPasswordLeakedSync('myPassword', (error, isLeaked) => {
+  if (error) throw new Error(error)
+  console.log('Is leaked?', isLeaked)
 })
 ```
 
 ## Usage in Command Line
 
-Install globally, or use `npx @mathiscode/password-leak`
+Install globally:
 
 ```sh
 npm install -g @mathiscode/password-leak
 ```
 
-You can then run `password-leak` to interactively enter the masked password, or provide the password as an argument, eg. `password-leak myPassword`
+You can then use it in two ways:
 
-The exit status will be 0 (not compromised) or 1 (compromised).
+1. Interactive mode:
+
+```sh
+password-leak
+```
+
+2. Direct mode:
+
+```sh
+password-leak myPassword
+```
+
+The command will:
+
+- Print whether the password has been compromised
+- Exit with status code 0 if the password is safe
+- Exit with status code 1 if the password is compromised or an error occurs
+
+You can also use it without installing via npx:
+
+```sh
+npx @mathiscode/password-leak myPassword
+```
+
+## Development
+
+```sh
+# Clone the repository
+git clone https://github.com/mathiscode/password-leak.git
+cd password-leak
+
+# Use pnpm to install dependencies
+pnpm install
+
+# Build the project
+pnpm run build
+
+# Run the tests
+pnpm run test
+
+# Start the UI
+pnpm run ui
+```
