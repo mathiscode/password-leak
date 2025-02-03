@@ -1,4 +1,3 @@
-import './dist/index.js'
 import 'https://unpkg.com/check-password-strength@3.0.0/dist/umd.js'
 
 const passwordInput = document.getElementById('passwordInput')
@@ -97,6 +96,9 @@ async function checkPassword() {
     resultDiv.style.display = 'none'
     
     try {
+        if (location.hostname === 'localhost') await import('./dist/index.js')
+        else await import('./index.js')
+        
         const isLeaked = await window.isPasswordLeaked(password)
         showResult(isLeaked)
     } catch (error) {
