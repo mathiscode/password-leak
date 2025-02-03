@@ -1,7 +1,22 @@
+import { passwordStrength } from 'check-password-strength'
+
 const crypto = globalThis.crypto
 
 export default isPasswordLeaked
 globalThis.isPasswordLeaked = isPasswordLeaked
+// globalThis.checkPassword = checkPassword
+globalThis.checkPasswordStrength = checkPasswordStrength
+
+export async function checkPassword(password: string) {
+  return {
+    strength: passwordStrength(password),
+    isLeaked: await isPasswordLeaked(password)
+  }
+}
+
+export function checkPasswordStrength(password: string) {
+  return passwordStrength(password)
+}
 
 export async function isPasswordLeaked(password: string) {
   if (typeof password !== 'string') throw new Error('Password must be a string')

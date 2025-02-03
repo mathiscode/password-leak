@@ -43,7 +43,9 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 
 <script>
   const isLeaked = await isPasswordLeaked('myPassword')
+  const strength = await checkPasswordStrength('myPassword')
   console.log('Is leaked?', isLeaked)
+  console.log('Strength', strength)
 </script>
 ```
 
@@ -55,18 +57,23 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 import isPasswordLeaked from '@mathiscode/password-leak'
 
 const isLeaked = await isPasswordLeaked('myPassword')
+const strength = await checkPasswordStrength('myPassword')
 console.log('Is leaked?', isLeaked)
+console.log('Strength', strength)
 ```
 
 ### With require/sync
 
 ```js
-const { isPasswordLeakedSync } = require('@mathiscode/password-leak')
+const { checkPasswordStrength, isPasswordLeakedSync } = require('@mathiscode/password-leak')
 
 isPasswordLeakedSync('myPassword', (error, isLeaked) => {
   if (error) throw new Error(error)
   console.log('Is leaked?', isLeaked)
 })
+
+const strength = checkPasswordStrength('myPassword')
+console.log('Strength', strength)
 ```
 
 ## Usage in Command Line
