@@ -20,9 +20,11 @@
   "bin": {
     "password-leak": "./dist/cli.cjs"
   },
-  "main": "./dist/index.js",
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
   "files": [
     "dist"
@@ -30,7 +32,9 @@
   "scripts": {
     "build": "npm run build:lib && npm run build:cli && npm run copy:ui",
     "build:cli": "esbuild src/cli.ts --bundle --minify --sourcemap --platform=node --outfile=dist/cli.cjs",
-    "build:lib": "esbuild src/index.ts --bundle --minify --sourcemap --outfile=dist/index.js",
+    "build:lib": "npm run build:lib:esm && npm run build:lib:cjs",
+    "build:lib:esm": "esbuild src/index.ts --bundle --minify --sourcemap --outfile=dist/index.js",
+    "build:lib:cjs": "esbuild src/index.ts --bundle --minify --sourcemap --platform=node --outfile=dist/index.cjs",
     "build:watch": "esbuild src/index.ts --bundle --minify --sourcemap --outfile=dist/index.js --watch",
     "copy:ui": "cp index.html ui.* dist/",
     "test": "jest",
