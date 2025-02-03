@@ -1,6 +1,8 @@
 <!-- markdownlint-disable MD026 -->
 
-# password-leak <!-- omit in toc -->
+# @mathiscode/password-leak <!-- omit in toc -->
+
+[![Live Demo](https://img.shields.io/badge/live-demo-blue?style=for-the-badge)](https://password-leak.vercel.app)
 
 [![Version](https://img.shields.io/npm/v/@mathiscode/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
 [![Downloads](https://img.shields.io/npm/dm/@mathiscode/password-leak.svg?color=blue)](https://www.npmjs.com/package/@mathiscode/password-leak)
