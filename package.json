@@ -20,6 +20,13 @@
   "bin": {
     "password-leak": "./dist/cli.cjs"
   },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npm run build:lib && npm run build:cli && npm run copy:ui",
     "build:cli": "esbuild src/cli.ts --bundle --minify --sourcemap --platform=node --outfile=dist/cli.cjs",
