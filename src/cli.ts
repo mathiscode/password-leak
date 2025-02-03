@@ -2,7 +2,7 @@
 
 import readline from 'node:readline'
 import { stdin as input, stdout as output } from 'node:process'
-import { isPasswordLeaked } from './index'
+import { checkPassword } from './index'
 
 const args = process.argv.slice(2)
 
@@ -20,9 +20,10 @@ async function promptPassword(): Promise<string> {
 async function main() {
   try {
     const password = args[0] || await promptPassword()
-    const isLeaked = await isPasswordLeaked(password)
-    console.log(`Password ${isLeaked ? 'has' : 'has not'} been compromised`)
-    process.exit(isLeaked ? 1 : 0)
+    const result = await checkPassword(password)
+    console.log(`Password ${result.isLeaked ? 'has' : 'has not'} been compromised`)
+    console.log('Password strength:', JSON.stringify(result.strength, null, 2))
+    process.exit(result.isLeaked ? 1 : 0)
   } catch (error) {
     console.error('Error:', error.message)
     process.exit(1)
