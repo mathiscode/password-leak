@@ -4,7 +4,7 @@ const crypto = globalThis.crypto
 
 export default isPasswordLeaked
 globalThis.isPasswordLeaked = isPasswordLeaked
-// globalThis.checkPassword = checkPassword
+globalThis.checkPassword = checkPassword
 globalThis.checkPasswordStrength = checkPasswordStrength
 
 export async function checkPassword(password: string) {
