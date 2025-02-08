@@ -106,7 +106,7 @@ password-leak myPassword
 
 The command will:
 
-- Print whether the password has been compromised
+- Print whether the password has been compromised and its strength
 - Exit with status code 0 if the password is safe
 - Exit with status code 1 if the password is compromised or an error occurs
 
