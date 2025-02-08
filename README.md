@@ -127,5 +127,5 @@ pnpm run build
 pnpm run test
 
 # Start the UI
-pnpm run ui
+pnpm run ui # demo at https://password-leak.vercel.app
 ```
