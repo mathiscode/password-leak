@@ -34,7 +34,7 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 
 ## Installation
 
-`npm install @mathiscode/password-leak`
+`npm install @mathiscode/password-leak@latest`
 
 ## Usage in Browser
 
@@ -84,6 +84,12 @@ Install globally:
 npm install -g @mathiscode/password-leak
 ```
 
+You can also use it without installing via npx:
+
+```sh
+npx @mathiscode/password-leak myPassword
+```
+
 You can then use it in two ways:
 
 1. Interactive mode:
@@ -103,12 +109,6 @@ The command will:
 - Print whether the password has been compromised
 - Exit with status code 0 if the password is safe
 - Exit with status code 1 if the password is compromised or an error occurs
-
-You can also use it without installing via npx:
-
-```sh
-npx @mathiscode/password-leak myPassword
-```
 
 ## Development
 
