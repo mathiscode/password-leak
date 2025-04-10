@@ -54,7 +54,7 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 ### With import/await
 
 ```js
-import isPasswordLeaked from '@mathiscode/password-leak'
+import { isPasswordLeaked, checkPasswordStrength } from '@mathiscode/password-leak'
 
 const isLeaked = await isPasswordLeaked('myPassword')
 const strength = await checkPasswordStrength('myPassword')
