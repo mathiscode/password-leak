@@ -39,13 +39,13 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 ## Usage in Browser
 
 ```html
-<script src="https://unpkg.com/@mathiscode/password-leak@latest"></script>
+<script type="module" src="https://unpkg.com/@mathiscode/password-leak@latest"></script>
 
-<script>
-  const isLeaked = await isPasswordLeaked('myPassword')
-  const strength = await checkPasswordStrength('myPassword')
-  console.log('Is leaked?', isLeaked)
-  console.log('Strength', strength)
+<script type="module">
+  const isLeaked = await isPasswordLeaked('myPassword');
+  const strength = await checkPasswordStrength('myPassword');
+  console.log('Is leaked?', isLeaked);
+  console.log('Strength', strength);
 </script>
 ```
 
