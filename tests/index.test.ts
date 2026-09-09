@@ -1,6 +1,17 @@
-import { checkPassword, checkPasswordStrength, isPasswordLeaked, isPasswordLeakedSync } from '../src'
+import {
+  checkPassword,
+  checkPasswordStrength,
+  isPasswordLeaked,
+  isPasswordLeakedSync
+} from '../src/index'
 
 describe('isPasswordLeaked', () => {
+  test('Does not pollute the global scope', () => {
+    expect((globalThis as any).isPasswordLeaked).toBeUndefined()
+    expect((globalThis as any).checkPassword).toBeUndefined()
+    expect((globalThis as any).checkPasswordStrength).toBeUndefined()
+  })
+
   test('Leaked password detected', async () => {
     expect(await isPasswordLeaked('password')).toBe(true)
     const syncCallback = jest.fn((error, isLeaked) => {

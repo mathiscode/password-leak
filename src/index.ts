@@ -1,49 +1,86 @@
 import { passwordStrength } from 'check-password-strength'
 
-const crypto = globalThis.crypto
+const API_URL = 'https://api.pwnedpasswords.com/range'
+
+export type PasswordStrength = ReturnType<typeof passwordStrength>
+
+export type PasswordCheckResult = {
+  strength: PasswordStrength
+  isLeaked: boolean
+}
+
+function assertPassword(password: string): string {
+  if (typeof password !== 'string') {
+    throw new Error('Password must be a string')
+  }
+
+  if (password.length === 0) {
+    throw new Error('Password must not be empty')
+  }
+
+  return password
+}
+
+async function sha1Hex(value: string): Promise<string> {
+  const hashBuffer = await globalThis.crypto.subtle.digest('SHA-1', new TextEncoder().encode(value))
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((byte) => byte.toString(16).padStart(2, '0'))
+    .join('')
+}
+
+async function isPasswordLeakedFromHash(hashHex: string): Promise<boolean> {
+  const firstFive = hashHex.slice(0, 5).toUpperCase()
+  const suffix = hashHex.slice(5).toUpperCase()
+  const response = await fetch(`${API_URL}/${firstFive}`)
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to check password leak status: ${response.status} ${response.statusText}`
+    )
+  }
+
+  const data = await response.text()
+  return data.split(/\r?\n/).some((line) => {
+    const [hash, count] = line.split(':')
+    return hash === suffix && count !== undefined
+  })
+}
+
+export async function checkPassword(password: string): Promise<PasswordCheckResult> {
+  const normalizedPassword = assertPassword(password)
+
+  return {
+    strength: passwordStrength(normalizedPassword),
+    isLeaked: await isPasswordLeaked(normalizedPassword)
+  }
+}
+
+export function checkPasswordStrength(password: string): PasswordStrength {
+  return passwordStrength(assertPassword(password))
+}
+
+export async function isPasswordLeaked(password: string): Promise<boolean> {
+  const normalizedPassword = assertPassword(password)
+  const hashHex = await sha1Hex(normalizedPassword)
+  return isPasswordLeakedFromHash(hashHex)
+}
+
+export function isPasswordLeakedSync(
+  password: string,
+  callback: (error: Error | null, isLeaked: boolean) => void
+): void {
+  try {
+    const normalizedPassword = assertPassword(password)
+
+    void sha1Hex(normalizedPassword)
+      .then((hashHex: string) => isPasswordLeakedFromHash(hashHex))
+      .then((isLeaked: boolean) => callback(null, isLeaked))
+      .catch((error: unknown) =>
+        callback(error instanceof Error ? error : new Error(String(error)), false)
+      )
+  } catch (error) {
+    callback(error instanceof Error ? error : new Error(String(error)), false)
+  }
+}
 
 export default isPasswordLeaked
-globalThis.isPasswordLeaked = isPasswordLeaked
-globalThis.checkPassword = checkPassword
-globalThis.checkPasswordStrength = checkPasswordStrength
-
-export async function checkPassword(password: string) {
-  return {
-    strength: passwordStrength(password),
-    isLeaked: await isPasswordLeaked(password)
-  }
-}
-
-export function checkPasswordStrength(password: string) {
-  return passwordStrength(password)
-}
-
-export async function isPasswordLeaked(password: string) {
-  if (typeof password !== 'string') throw new Error('Password must be a string')
-
-  const hashedPassword = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(password))
-  const hashedPasswordString = Array.from(new Uint8Array(hashedPassword)).map(b => b.toString(16).padStart(2, '0')).join('')
-  const firstFive = hashedPasswordString.substring(0, 5).toUpperCase()
-  const response = await fetch(`https://api.pwnedpasswords.com/range/${firstFive}`)
-  const data = await response.text()
-
-  return data.includes(hashedPasswordString.substring(5).toUpperCase())
-}
-
-export function isPasswordLeakedSync(password: string, callback: (error: Error | null, isLeaked: boolean) => void) {
-  if (typeof password !== 'string') {
-    callback(new Error('Password must be a string'), false)
-    return
-  }
-
-  crypto.subtle.digest('SHA-1', new TextEncoder().encode(password))
-    .catch(error => callback(error, false))
-    .then(hashedPassword => {
-      const hashedPasswordString = Array.from(new Uint8Array(hashedPassword as ArrayBuffer)).map(b => b.toString(16).padStart(2, '0')).join('')
-      const firstFive = hashedPasswordString.substring(0, 5).toUpperCase()
-      fetch(`https://api.pwnedpasswords.com/range/${firstFive}`)
-        .then(response => response.text())
-        .then(data => callback(null, data.includes(hashedPasswordString.substring(5).toUpperCase())))
-        .catch(error => callback(error, false))
-    })
-}

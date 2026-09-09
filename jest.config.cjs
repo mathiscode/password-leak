@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   transform: {
     '^.+\\.tsx?$': 'esbuild-jest'
   }

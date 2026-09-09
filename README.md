@@ -21,6 +21,7 @@
   - [With require/sync](#with-requiresync)
 - [Usage in Command Line](#usage-in-command-line)
 - [Development](#development)
+- [Project status](#project-status)
 
 ---
 
@@ -34,7 +35,11 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 
 ## Installation
 
-`npm install @mathiscode/password-leak@latest`
+```sh
+npm install @mathiscode/password-leak@latest
+```
+
+This package targets modern Node.js versions and exposes a typed, Promise-based API.
 
 ## Usage in Browser
 
@@ -42,10 +47,10 @@ Your passwords are **NEVER** transmitted to any other system. This library makes
 <script type="module" src="https://unpkg.com/@mathiscode/password-leak@latest"></script>
 
 <script type="module">
-  const isLeaked = await isPasswordLeaked('myPassword');
-  const strength = await checkPasswordStrength('myPassword');
-  console.log('Is leaked?', isLeaked);
-  console.log('Strength', strength);
+  const isLeaked = await isPasswordLeaked('myPassword')
+  const strength = await checkPasswordStrength('myPassword')
+  console.log('Is leaked?', isLeaked)
+  console.log('Strength', strength)
 </script>
 ```
 
@@ -68,13 +73,15 @@ console.log('Strength', strength)
 const { checkPasswordStrength, isPasswordLeakedSync } = require('@mathiscode/password-leak')
 
 isPasswordLeakedSync('myPassword', (error, isLeaked) => {
-  if (error) throw new Error(error)
+  if (error) throw error
   console.log('Is leaked?', isLeaked)
 })
 
 const strength = checkPasswordStrength('myPassword')
 console.log('Strength', strength)
 ```
+
+The Promise-based API is the recommended interface for new code.
 
 ## Usage in Command Line
 
@@ -117,15 +124,32 @@ The command will:
 git clone https://github.com/mathiscode/password-leak.git
 cd password-leak
 
-# Use pnpm to install dependencies
+# Install dependencies
 pnpm install
+
+# Run type-checking
+pnpm exec tsc --noEmit
+
+# Run tests
+pnpm exec jest --runInBand
 
 # Build the project
 pnpm run build
 
-# Run the tests
-pnpm run test
+# Lint the codebase
+pnpm exec eslint . --ext .ts
 
-# Start the UI
+# Start the UI demo
 pnpm run ui # demo at https://password-leak.vercel.app
 ```
+
+## Project status
+
+This project now uses a modernized setup with:
+
+- TypeScript strict checking
+- ESLint and Prettier validation
+- CI automation for linting, tests, and type checks
+- a safer, non-global export surface for library usage
+
+The recommended API remains the async functions such as `isPasswordLeaked` and `checkPassword`.

@@ -5,6 +5,11 @@
   "homepage": "https://github.com/mathiscode/password-leak",
   "license": "MIT",
   "type": "module",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
   "author": {
     "name": "Jay Mathis",
     "email": "code@mathis.network",
@@ -39,6 +44,10 @@
     "build:watch": "esbuild src/index.ts --bundle --minify --sourcemap --outfile=dist/index.js --watch",
     "copy:ui": "cp index.html ui.* dist/",
     "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
     "ui": "serve -l 1984 ."
   },
   "keywords": [
@@ -52,12 +61,18 @@
     "access": "public"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
     "check-password-strength": "^3.0.0",
     "esbuild": "^0.25.0",
     "esbuild-jest": "^0.5.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.0",
     "jest": "^29.7.0",
+    "prettier": "^3.4.0",
     "serve": "^14.2.4",
     "ts-node": "^10.9.2"
   }
